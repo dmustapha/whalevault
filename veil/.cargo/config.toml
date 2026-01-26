@@ -1,0 +1,7 @@
+# Solana SBF build configuration
+# Configure getrandom backend for unsupported targets (Solana doesn't support randomness)
+[target.'cfg(target_os = "solana")']
+rustflags = ['--cfg', 'getrandom_backend="unsupported"']
+
+[target.sbf-solana-solana]
+rustflags = ['--cfg', 'getrandom_backend="unsupported"']

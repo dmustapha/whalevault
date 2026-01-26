@@ -1,0 +1,57 @@
+[workspace]
+members = [
+    "crates/core",
+    "crates/program"
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Cryptography - zkSNARK and elliptic curves
+ark-bn254 = "0.4"
+ark-groth16 = "0.4"
+ark-crypto-primitives = "0.4"
+ark-std = { version = "0.4", default-features = false }
+ark-ff = "0.4"
+ark-ec = "0.4"
+ark-serialize = "0.4"
+ark-relations = "0.4"
+ark-r1cs-std = "0.4"
+ark-snark = "0.4"
+
+# Solana - compatible with cargo-build-sbf 2.2.14 (Rust 1.84.1)
+# Using 1.18.x to avoid blake3 1.8.x dependency which requires edition 2024
+solana-program = "=1.18.26"
+anchor-lang = "0.30"
+anchor-spl = "0.30"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Hashing
+sha2 = "0.10"
+blake3 = "1.5"
+
+# Utilities
+hex = "0.4"
+rand = "0.8"
+bs58 = "0.5"
+
+# Python bindings
+pyo3 = { version = "0.20", features = ["extension-module"] }
+
+# Testing
+criterion = "0.5"
+
+[profile.release]
+overflow-checks = true
+
+# Patch crates to ensure Rust 1.75.0 compatibility (SBF toolchain)
+[patch.crates-io]
+# blake3 1.8.x depends on constant_time_eq 0.4.x which requires edition 2024
+blake3 = { git = "https://github.com/BLAKE3-team/BLAKE3", tag = "1.5.0" }
+
