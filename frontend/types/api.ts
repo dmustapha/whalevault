@@ -1,0 +1,106 @@
+/**
+ * API response types matching backend models
+ */
+
+// Serialized Solana instruction
+export interface SerializedInstruction {
+  programId: string;
+  keys: InstructionKey[];
+  data: string; // base64 encoded
+}
+
+export interface InstructionKey {
+  pubkey: string;
+  isSigner: boolean;
+  isWritable: boolean;
+}
+
+// Shield prepare response
+export interface ShieldPrepareResponse {
+  commitment: string;
+  secret: string | null;  // null when frontend provides pre-computed commitment
+  amount: number;
+  instruction: SerializedInstruction;
+  blockhash: string;
+}
+
+// Commitment computation response
+export interface ComputeCommitmentResponse {
+  commitment: string;
+}
+
+// Unshield prepare response
+export interface UnshieldPrepareResponse {
+  instruction: SerializedInstruction;
+  blockhash: string;
+  amount: number;
+  recipient: string;
+}
+
+// Proof job responses
+export type ProofStatus = "pending" | "processing" | "completed" | "failed";
+
+export interface ProofJobResponse {
+  jobId: string;
+  status: ProofStatus;
+  estimatedTime: number;
+}
+
+export interface ProofResult {
+  proof: string;
+  nullifier: string;
+  publicInputs: {
+    commitment: string;
+    nullifier: string;
+    recipient: string;
+    amount: number;
+  };
+  verified: boolean;
+}
+
+export interface ProofStatusResponse {
+  jobId: string;
+  status: ProofStatus;
+  progress: number;
+  stage: string | null;
+  result: ProofResult | null;
+  error: string | null;
+}
+
+// Pool status
+export interface PoolStatusResponse {
+  totalValueLocked: number;
+  totalDeposits: number;
+  anonymitySetSize: number;
+}
+
+// Health check
+export interface HealthResponse {
+  status: string;
+  version: string;
+  solanaConnection: boolean;
+  rpcLatency: number | null;
+  programId: string;
+}
+
+// API Error
+export interface APIError {
+  code: string;
+  message: string;
+  details?: Record<string, unknown>;
+}
+
+// Relayer types
+export interface RelayerInfoResponse {
+  enabled: boolean;
+  publicKey: string;
+  feeBps: number;  // Fee in basis points (100 = 1%)
+  balance: number; // Relayer balance in lamports
+}
+
+export interface RelayUnshieldResponse {
+  signature: string;  // Transaction signature
+  fee: number;        // Fee charged in lamports
+  amountSent: number; // Amount sent after fee
+  recipient: string;  // Recipient address
+}
