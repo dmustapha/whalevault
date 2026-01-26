@@ -1,0 +1,25 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+veil_program = "F3NLgP6kebPXSbH2GxGF39cR6uVdbzFD1V7iTgg7Htp4"
+
+[programs.devnet]
+veil_program = "F3NLgP6kebPXSbH2GxGF39cR6uVdbzFD1V7iTgg7Htp4"
+
+[programs.mainnet]
+veil_program = "F3NLgP6kebPXSbH2GxGF39cR6uVdbzFD1V7iTgg7Htp4"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[workspace]
+members = ["crates/program"]
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
