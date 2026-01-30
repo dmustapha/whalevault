@@ -31,7 +31,7 @@
   "env": {
     "NEXT_PUBLIC_API_URL": "https://whalevault-production.up.railway.app/api",
     "NEXT_PUBLIC_SOLANA_NETWORK": "devnet",
-    "NEXT_PUBLIC_SOLANA_RPC_URL": "https://api.devnet.solana.com",
+    "NEXT_PUBLIC_SOLANA_RPC_URL": "https://devnet.helius-rpc.com/?api-key=37b10f99-d36d-4796-8718-b47f0742c390",
     "NEXT_PUBLIC_SUPABASE_URL": "https://spxwryqmcdwkkskgnups.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNweHdyeXFtY2R3a2tza2dudXBzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1NDAyMjgsImV4cCI6MjA4NTExNjIyOH0.kyt1uZJGJys60RLlD5DHVAJhyxAycnSXqv9A8cOlVuM"
   }
