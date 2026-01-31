@@ -64,15 +64,9 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-[72px]">
-            {/* Logo with icon */}
-            <Link href="/home" className="flex items-center gap-2">
-              <svg width="28" height="28" viewBox="0 0 32 32" className="drop-shadow-[0_0_8px_rgba(0,160,136,0.5)]">
-                <rect width="32" height="32" rx="6" fill="#0a0f14"/>
-                <path d="M16 4 L26 12 L26 22 L16 28 L6 22 L6 12 Z" fill="none" stroke="#00a088" strokeWidth="1.5" opacity="0.6"/>
-                <path d="M16 8 C12 10, 10 14, 12 18 C14 22, 16 24, 16 24 C16 24, 18 22, 20 18 C22 14, 20 10, 16 8" fill="#00a088"/>
-                <circle cx="16" cy="14" r="2" fill="#0a0f14"/>
-              </svg>
-              <span className="text-terminal-green mr-1" style={{ textShadow: "0 0 15px #00a088" }}>{">"}</span>
+            {/* Logo */}
+            <Link href="/home" className="flex items-center gap-1">
+              <span className="text-terminal-green animate-cursor-blink" style={{ textShadow: "0 0 15px #00a088" }}>{">"}</span>
               <span
                 className="text-terminal-green font-heading text-[22px] font-bold tracking-[2px]"
                 style={{ textShadow: "0 0 25px #00a088, 0 0 50px rgba(0, 160, 136, 0.3)" }}
@@ -120,15 +114,9 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-[72px]">
-          {/* Logo with icon */}
-          <Link href="/home" className="flex items-center gap-2">
-            <svg width="28" height="28" viewBox="0 0 32 32" className="drop-shadow-[0_0_8px_rgba(0,160,136,0.5)]">
-              <rect width="32" height="32" rx="6" fill="#0a0f14"/>
-              <path d="M16 4 L26 12 L26 22 L16 28 L6 22 L6 12 Z" fill="none" stroke="#00a088" strokeWidth="1.5" opacity="0.6"/>
-              <path d="M16 8 C12 10, 10 14, 12 18 C14 22, 16 24, 16 24 C16 24, 18 22, 20 18 C22 14, 20 10, 16 8" fill="#00a088"/>
-              <circle cx="16" cy="14" r="2" fill="#0a0f14"/>
-            </svg>
-            <span className="text-terminal-green mr-1" style={{ textShadow: "0 0 15px #00a088" }}>{">"}</span>
+          {/* Logo */}
+          <Link href="/home" className="flex items-center gap-1">
+            <span className="text-terminal-green animate-cursor-blink" style={{ textShadow: "0 0 15px #00a088" }}>{">"}</span>
             <span
               className="text-terminal-green font-heading text-[22px] font-bold tracking-[2px]"
               style={{ textShadow: "0 0 25px #00a088, 0 0 50px rgba(0, 160, 136, 0.3)" }}

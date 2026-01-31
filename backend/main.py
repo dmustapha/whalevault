@@ -75,10 +75,20 @@ def create_app() -> FastAPI:
 app = create_app()
 
 
+def add_cors_headers(response: JSONResponse, request: Request) -> JSONResponse:
+    """Add CORS headers to error responses."""
+    settings = get_settings()
+    origin = request.headers.get("origin", "")
+    if origin in settings.cors_origins_list:
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Access-Control-Allow-Credentials"] = "true"
+    return response
+
+
 @app.exception_handler(WhaleVaultError)
 async def whalevault_exception_handler(request: Request, exc: WhaleVaultError):
     """Handle custom WhaleVault exceptions with structured error responses."""
-    return JSONResponse(
+    response = JSONResponse(
         status_code=exc.status_code,
         content={
             "error": {
@@ -89,19 +99,21 @@ async def whalevault_exception_handler(request: Request, exc: WhaleVaultError):
             }
         },
     )
+    return add_cors_headers(response, request)
 
 
 @app.exception_handler(Exception)
 async def generic_exception_handler(request: Request, exc: Exception):
     """Handle unexpected exceptions with a generic error response."""
-    return JSONResponse(
+    response = JSONResponse(
         status_code=500,
         content={
             "error": {
                 "code": "INTERNAL_ERROR",
                 "message": "An unexpected error occurred",
-                "details": {"type": type(exc).__name__},
+                "details": {"type": type(exc).__name__, "message": str(exc)},
                 "request_id": str(uuid.uuid4()),
             }
         },
     )
+    return add_cors_headers(response, request)
