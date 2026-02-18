@@ -3,7 +3,7 @@
 Shield, send, and swap Solana assets using zero-knowledge proofs.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Solana](https://img.shields.io/badge/Solana-mainnet-9945FF)](https://solana.com/)
+[![Solana](https://img.shields.io/badge/Solana-devnet-9945FF)](https://solana.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ![WhaleVault Landing](docs/images/landing.png)
@@ -11,8 +11,6 @@ Shield, send, and swap Solana assets using zero-knowledge proofs.
 ## Live Demo
 
 **[whalevault.vercel.app](https://whalevault.vercel.app)**
-
-Connect a Solana wallet to explore the full app.
 
 ## Demo Video
 
@@ -57,6 +55,78 @@ WhaleVault is a privacy layer for Solana. Deposit assets into a private pool and
 | State | Zustand |
 | UI | shadcn/ui |
 | Deployment | Vercel |
+
+---
+
+## Testing the App
+
+WhaleVault runs on Solana devnet. No real SOL needed.
+
+---
+
+### Step 1: Get a Solana wallet
+
+Install **[Phantom](https://phantom.app)** (browser extension or mobile). Create a new wallet and save your seed phrase.
+
+Switch Phantom to devnet:
+- Open Phantom
+- Go to Settings > Developer Settings > Change Network
+- Select **Devnet**
+
+---
+
+### Step 2: Get devnet SOL
+
+You need devnet SOL to pay for transaction fees.
+
+Go to **[faucet.solana.com](https://faucet.solana.com)**, paste your devnet wallet address, and request an airdrop. You will receive test SOL within seconds.
+
+Alternatively, run this from the terminal if you have the Solana CLI:
+
+```bash
+solana airdrop 2 YOUR_WALLET_ADDRESS --url devnet
+```
+
+---
+
+### Step 3: Connect your wallet
+
+Go to [whalevault.vercel.app](https://whalevault.vercel.app) and click **Connect Wallet**. Select Phantom and approve the connection.
+
+---
+
+### Step 4: Shield assets
+
+Shielding moves your SOL from your public wallet into the private pool. Once shielded, the amount and your identity are hidden from on-chain observers.
+
+1. Click **Shield** in the sidebar
+2. Enter the amount of SOL to shield
+3. Approve the transaction in Phantom
+4. WhaleVault generates a ZK proof client-side and submits a commitment to the on-chain Merkle tree
+5. You receive a private note. Save it. This note is the only way to prove ownership of your shielded funds.
+
+---
+
+### Step 5: Send privately
+
+Send shielded assets to any Solana address without revealing the amount or linking it to your original wallet.
+
+1. Click **Send**
+2. Enter the recipient address and amount
+3. WhaleVault generates a ZK proof that you own a valid deposit
+4. A nullifier is submitted on-chain to prevent double-spending
+5. The recipient receives the SOL with no visible link to your original deposit
+
+---
+
+### Step 6: Swap within the pool
+
+Swap one shielded asset for another without leaving the privacy pool.
+
+1. Click **Swap**
+2. Select input and output tokens and enter the amount
+3. Approve the swap
+4. The swap happens inside the pool. No public transaction links the input to the output.
 
 ---
 
