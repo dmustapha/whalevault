@@ -85,7 +85,7 @@ User withdraws to any address with a fresh ZK proof
 ## Running Locally
 
 ```bash
-git clone https://github.com/dmz4pf/whalevault.git
+git clone https://github.com/dmustapha/whalevault.git
 cd whalevault
 npm install
 cp .env.example .env.local
