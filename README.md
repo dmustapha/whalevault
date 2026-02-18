@@ -14,6 +14,10 @@
 
 Connect a Solana wallet to explore the full app.
 
+## Demo Video
+
+[![WhaleVault Demo](https://img.youtube.com/vi/S7Zvx2GeAYY/maxresdefault.jpg)](https://youtu.be/S7Zvx2GeAYY?si=tH4070I5h9osjW_z)
+
 ---
 
 ## What Is WhaleVault?
@@ -24,9 +28,7 @@ WhaleVault is a privacy layer for Solana. It lets users shield their assets into
 
 ## Screenshots
 
-| Landing | Shield |
-|---------|--------|
-| ![Landing](docs/images/landing.png) | ![Shield](docs/images/shield.png) |
+![WhaleVault Landing](docs/images/landing.png)
 
 ---
 
