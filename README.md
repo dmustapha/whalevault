@@ -1,6 +1,6 @@
-# WhaleVault — Privacy-Preserving Vault for Solana
+# WhaleVault — Privacy Layer for Solana
 
-> Shield, send, and swap Solana assets with zero-knowledge proof privacy.
+Shield, send, and swap Solana assets using zero-knowledge proofs.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![Solana](https://img.shields.io/badge/Solana-mainnet-9945FF)](https://solana.com/)
@@ -10,7 +10,7 @@
 
 ## Live Demo
 
-**[→ whalevault.vercel.app](https://whalevault.vercel.app)**
+**[whalevault.vercel.app](https://whalevault.vercel.app)**
 
 Connect a Solana wallet to explore the full app.
 
@@ -22,7 +22,7 @@ Connect a Solana wallet to explore the full app.
 
 ## What Is WhaleVault?
 
-WhaleVault is a privacy layer for Solana. It lets users shield their assets into a private pool using zero-knowledge proofs — meaning transactions are verifiable on-chain but the amounts and parties involved remain private.
+WhaleVault is a privacy layer for Solana. Deposit assets into a private pool and your transactions become verifiable on-chain without revealing the amounts or the parties involved. You prove you own a valid deposit without revealing which one or how much.
 
 ---
 
@@ -38,13 +38,12 @@ WhaleVault is a privacy layer for Solana. It lets users shield their assets into
 
 ## Features
 
-- **ZK Proof Shielding** — Deposit assets into a private pool using zkSNARK proofs
-- **Private Transfers** — Send shielded assets to any address without revealing amount
-- **Private Swap** — Swap assets within the privacy pool
-- **Transaction History** — View your private transaction history
-- **Nullifier System** — Prevents double-spending within the privacy pool
-- **Merkle Tree** — Cryptographic proof of inclusion without revealing identity
-- **Non-Custodial** — You control your keys at all times
+- **ZK shielding**: Deposit assets into a private pool using zkSNARK proofs
+- **Private transfers**: Send shielded assets to any address without revealing the amount
+- **Private swaps**: Swap within the privacy pool
+- **Nullifier system**: Prevents double-spending inside the pool
+- **Merkle tree**: Cryptographic proof of inclusion without revealing identity
+- **Non-custodial**: You hold your keys at all times
 
 ---
 
@@ -65,24 +64,21 @@ WhaleVault is a privacy layer for Solana. It lets users shield their assets into
 
 ```
 User deposits SOL/tokens
-        │
-        ▼
+        |
+        v
 ZK proof generated client-side
 (proves ownership without revealing amount)
-        │
-        ▼
+        |
+        v
 Commitment added to on-chain Merkle tree
 (verifiable but private)
-        │
-        ▼
+        |
+        v
 Nullifier stored to prevent double-spend
-        │
-        ▼
-User can withdraw to any address
-with a fresh ZK proof
+        |
+        v
+User withdraws to any address with a fresh ZK proof
 ```
-
-The key insight: the proof says "I know a secret that corresponds to a valid deposit" — without revealing *which* deposit or *how much*.
 
 ---
 
@@ -108,7 +104,7 @@ src/
 │   ├── send/         # Private transfer
 │   └── swap/         # Private swap
 ├── lib/
-│   ├── zk/           # ZK proof generation & verification
+│   ├── zk/           # ZK proof generation and verification
 │   ├── solana/       # Solana Web3.js integration
 │   └── merkle/       # Merkle tree implementation
 └── stores/           # Zustand state management
