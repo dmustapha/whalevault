@@ -1,4 +1,4 @@
-# WhaleVault — Privacy Layer for Solana
+# WhaleVault: Privacy Layer for Solana
 
 Shield, send, and swap Solana assets using zero-knowledge proofs.
 
