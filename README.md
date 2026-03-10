@@ -182,6 +182,13 @@ src/
 
 ---
 
+## Contact
+
+- X: [@whalevaultpriv](https://x.com/whalevaultpriv)
+- Email: [damilolamustaphaa@gmail.com](mailto:damilolamustaphaa@gmail.com)
+
+---
+
 ## License
 
 MIT
