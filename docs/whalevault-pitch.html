@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhaleVault Pitch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #00d4aa;
+      --teal-dark: #00a088;
+      --navy: #0a0f14;
+      --navy-mid: #111820;
+      --text: #1a1a2e;
+      --text-mid: #4a4a6a;
+      --text-light: #8888aa;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-light: #f8fafc;
+      --tag-bg: #eef2f7;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 48px 64px;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #0a0f14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-mark svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .brand-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--navy);
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 400;
+      margin-bottom: 32px;
+      margin-top: 2px;
+      padding-bottom: 28px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+      padding: 28px 0;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* WHAT WE DO */
+    .what-we-do p {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .what-we-do p:last-child { margin-bottom: 0; }
+
+    .what-we-do strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* HOW IT WORKS GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+    }
+
+    .feature-block h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .feature-block p {
+      font-size: 12.5px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* TRACTION */
+    .traction-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 212, 170, 0.12);
+      border: 1px solid rgba(0, 212, 170, 0.3);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .traction-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .stat-box {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-box .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat-box .stat-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+
+    .integrations-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .integrations-list {
+      font-size: 12.5px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    .integrations-list span {
+      color: var(--border);
+      margin: 0 6px;
+    }
+
+    /* TECH STACK */
+    .stack-group {
+      margin-bottom: 14px;
+    }
+
+    .stack-group:last-child { margin-bottom: 0; }
+
+    .stack-group-label {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--text-mid);
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .tag.teal {
+      background: rgba(0, 212, 170, 0.1);
+      color: var(--teal-dark);
+      border-color: rgba(0, 212, 170, 0.25);
+    }
+
+    /* PROJECT GRID */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+    }
+
+    .project-block h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .project-block p {
+      font-size: 12.5px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      color: var(--text-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover { color: var(--teal-dark); }
+
+    .footer-links .sep {
+      color: var(--border);
+      font-size: 14px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    .open-to {
+      font-size: 11.5px;
+      color: var(--teal-dark);
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    /* PRINT */
+    @media print {
+      body { padding: 32px; max-width: 100%; }
+      @page { margin: 0.5in; size: A4; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-mark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <defs>
+          <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#00a088;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect width="32" height="32" rx="6" fill="#0a0f14"/>
+        <path d="M16 4 L26 12 L26 22 L16 28 L6 22 L6 12 Z" fill="none" stroke="url(#glow)" stroke-width="1.5" opacity="0.6"/>
+        <path d="M16 8 C12 10, 10 14, 12 18 C14 22, 16 24, 16 24 C16 24, 18 22, 20 18 C22 14, 20 10, 16 8" fill="url(#glow)" opacity="0.9"/>
+        <circle cx="16" cy="14" r="2" fill="#0a0f14"/>
+      </svg>
+    </div>
+    <span class="brand-name">WhaleVault</span>
+  </div>
+  <p class="tagline">On-chain privacy infrastructure for DeFi: shield, transfer, and swap without revealing amounts or parties.</p>
+
+  <!-- WHAT WE DO -->
+  <div class="section what-we-do">
+    <div class="section-label">W H A T &nbsp; W E &nbsp; D O</div>
+    <p>On-chain transactions are public by default. Every DeFi interaction — deposit, transfer, swap — is permanently traceable. Institutions will not participate in protocols where their positions are visible to competitors. Retail users have no MEV protection once a transaction is broadcast. The data is just there, for anyone who wants it.</p>
+    <p><strong>WhaleVault puts a cryptographic privacy layer on top of DeFi.</strong> Deposit assets into a shielded pool and the connection between your deposit and withdrawal is severed at the proof level. Transfers and swaps happen inside the pool without exposing amounts or counterparties on-chain. The only thing anyone can verify is that the proof is valid.</p>
+    <p>The privacy primitives ship separately as Veil, a standalone SDK with a Python API backed by Rust cryptography. Any team building a privacy-sensitive application can integrate ZK proofs with a single install. The current deployment runs on Solana. The cryptographic stack — Groth16 proofs on BN254, Poseidon hashing, incremental Merkle trees — is standard infrastructure that ports to any ZK-compatible chain.</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <div class="section-label">H O W &nbsp; I T &nbsp; W O R K S</div>
+    <div class="features-grid">
+
+      <div class="feature-block">
+        <h3>ZK Shielding</h3>
+        <p>Deposit assets and receive a cryptographic note. The note encodes your deposit without revealing the amount. A Groth16 zkSNARK proves the deposit is valid without disclosing which deposit you made or how much it is worth.</p>
+      </div>
+
+      <div class="feature-block">
+        <h3>Private Transfers</h3>
+        <p>Send shielded assets to any address. The transfer happens inside the pool. No amounts, no sender, no recipient visible on-chain — only a valid proof that the note was spent and a new note was issued to the recipient.</p>
+      </div>
+
+      <div class="feature-block">
+        <h3>Veil SDK</h3>
+        <p>The privacy primitives ship as a standalone Python package backed by Rust via PyO3. Generate commitments, nullifiers, and Merkle proofs with a clean API. Integrate ZK privacy into any application without writing circuit code. Published on PyPI as veil-solana.</p>
+      </div>
+
+      <div class="feature-block">
+        <h3>Nullifier System</h3>
+        <p>Each deposit note has a one-time nullifier. Spending a note records the nullifier on-chain, preventing double-spends without revealing which note was used. The Merkle tree tracks pool membership cryptographically, not by address.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TRACTION -->
+  <div class="section">
+    <div class="section-label">T R A C T I O N</div>
+
+    <div class="traction-badge">
+      Live · Vercel · PyPI Published
+    </div>
+
+    <div class="traction-stats">
+      <div class="stat-box">
+        <span class="stat-value">Live</span>
+        <span class="stat-label">whalevault.vercel.app</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-value">89</span>
+        <span class="stat-label">Tests Passing · App + SDK</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-value">PyPI</span>
+        <span class="stat-label">veil-solana · pip installable</span>
+      </div>
+    </div>
+
+    <div class="integrations-label">Interfaces</div>
+    <div class="integrations-list">
+      REST API
+      <span>·</span>
+      Next.js Dashboard
+      <span>·</span>
+      Veil Python SDK
+      <span>·</span>
+      Solana Web3.js
+      <span>·</span>
+      Devnet + Mainnet
+    </div>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="section">
+    <div class="section-label">T E C H &nbsp; S T A C K</div>
+
+    <div class="stack-group">
+      <div class="stack-group-label">Cryptography</div>
+      <div class="tags">
+        <span class="tag teal">Groth16 zkSNARKs</span>
+        <span class="tag teal">BN254 curve</span>
+        <span class="tag">Poseidon Hash</span>
+        <span class="tag">Merkle Tree (depth 20)</span>
+        <span class="tag">Rust · PyO3</span>
+        <span class="tag">89 tests</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <div class="stack-group-label">Application</div>
+      <div class="tags">
+        <span class="tag">Next.js 14</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">Python · FastAPI</span>
+        <span class="tag">Railway</span>
+        <span class="tag">Vercel</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <div class="stack-group-label">Chain</div>
+      <div class="tags">
+        <span class="tag teal">Solana (primary)</span>
+        <span class="tag">Solana Web3.js</span>
+        <span class="tag">ZK stack chain-portable</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT -->
+  <div class="section">
+    <div class="section-label">P R O J E C T</div>
+    <div class="project-grid">
+
+      <div class="project-block">
+        <h3>Open Source</h3>
+        <p>The full codebase is public on GitHub — circuits, Veil SDK, backend, and frontend. Every design decision is visible. Developers can fork the SDK, extend the circuits, or integrate the privacy layer into their own protocol.</p>
+      </div>
+
+      <div class="project-block">
+        <h3>Demo</h3>
+        <p>A complete walkthrough from shield through private transfer to unshield is on YouTube. The live deployment on Vercel accepts real devnet transactions with no local setup required.</p>
+      </div>
+
+      <div class="project-block">
+        <h3>Veil SDK</h3>
+        <p>Published on PyPI as veil-solana. Any Python developer can install the SDK and start generating ZK proofs in minutes. Documentation at veil-sdk.com. The SDK is independent of the WhaleVault application.</p>
+      </div>
+
+      <div class="project-block">
+        <h3>Chain Portability</h3>
+        <p>Groth16 proofs, Poseidon hashing, and incremental Merkle trees are standard across ZK ecosystems. The Solana integration is isolated to the application layer. Porting to EVM, StarkNet, or any ZK-compatible chain means replacing the chain interface, not the cryptographic core.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="https://whalevault.vercel.app" target="_blank">Live App</a>
+      <span class="sep">·</span>
+      <a href="https://x.com/whalevaultpriv" target="_blank">𝕏 @whalevaultpriv</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/dmustapha/whalevault" target="_blank">GitHub</a>
+      <span class="sep">·</span>
+      <a href="https://pypi.org/project/veil-solana/" target="_blank">PyPI · veil-solana</a>
+      <span class="sep">·</span>
+      <a href="mailto:damilolamustaphaa@gmail.com">damilolamustaphaa@gmail.com</a>
+    </div>
+    <div>
+      <span class="open-to">Open to partnerships, integrations, and strategic discussions.</span>
+      <div class="footer-copy" style="margin-top:4px;">© 2026 WhaleVault</div>
+    </div>
+  </div>
+
+</body>
+</html>
